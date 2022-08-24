@@ -29,7 +29,7 @@ class PE extends StatelessWidget {
           title: Text('Personal Expenses App'),
         ),
         body: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
@@ -45,14 +45,44 @@ class PE extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
+                          margin: EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 2,
+                              color: Colors.purple,
+                            ),
+                          ),
+                          padding: EdgeInsets.all(10.0),
                           child: Text(
                             tx.amount.toString(),
+                            style: TextStyle(
+                              color: Colors.purple,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         Column(
+                          textDirection: TextDirection.ltr,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(tx.title),
-                            Text(tx.date.toString()),
+                            Text(
+                              tx.title,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.purple,
+                              ),
+                            ),
+                            Text(
+                              tx.date.toString(),
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
                           ],
                         )
                       ],
