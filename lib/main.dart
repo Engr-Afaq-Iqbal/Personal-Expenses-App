@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:personal_expenses_app/transaction.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(PE());
@@ -20,6 +21,8 @@ class PE extends StatelessWidget {
       date: DateTime.now(),
     )
   ];
+  String ntitle = '';
+  String namount = '';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,7 +32,7 @@ class PE extends StatelessWidget {
           title: Text('Personal Expenses App'),
         ),
         body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
@@ -37,6 +40,40 @@ class PE extends StatelessWidget {
                 child: Card(
                   color: Colors.blue,
                   child: Text('Charts'),
+                ),
+              ),
+              Card(
+                elevation: 5.0,
+                child: Container(
+                  padding: EdgeInsets.all(5.0),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: 'Title',
+                          ),
+                          onChanged: (val) => ntitle = val,
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: 'Amount',
+                          ),
+                          onChanged: (value) => namount = value,
+                        ),
+                        FlatButton(
+                          child: Text(
+                            'Add Transaction',
+                            style: TextStyle(
+                              color: Colors.purple,
+                            ),
+                          ),
+                          onPressed: () {
+                            print(ntitle);
+                            print(namount);
+                          },
+                        )
+                      ]),
                 ),
               ),
               Column(
@@ -57,7 +94,7 @@ class PE extends StatelessWidget {
                           ),
                           padding: EdgeInsets.all(10.0),
                           child: Text(
-                            tx.amount.toString(),
+                            '\$' + tx.amount.toString(),
                             style: TextStyle(
                               color: Colors.purple,
                               fontSize: 20.0,
@@ -66,7 +103,6 @@ class PE extends StatelessWidget {
                           ),
                         ),
                         Column(
-                          textDirection: TextDirection.ltr,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -78,7 +114,7 @@ class PE extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              tx.date.toString(),
+                              DateFormat.yMMMd().format(tx.date),
                               style: TextStyle(
                                 color: Colors.grey,
                               ),
