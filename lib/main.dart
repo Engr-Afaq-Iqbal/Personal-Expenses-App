@@ -14,9 +14,9 @@ class PE extends StatelessWidget {
         appBar: AppBar(
           title: Text('Personal Expenses App'),
         ),
-        body: ListView(
+        body: Column(
             //mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 width: double.infinity,
