@@ -48,7 +48,6 @@ class _PEState extends State<PE> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Personal Expenses App'),
           actions: <Widget>[
             IconButton(
               onPressed: () {},
